@@ -68,6 +68,10 @@ public actor DataFetcher {
           DataFetcher.fetchCache { data in
             if !Task.isCancelled {
               continuation.yield(data)
+
+              Task(priority: .utility) {
+                Logger.d("DataFetcher: run some side effects after cached data is fetched.")
+              }
             }
           }
         } onCancel: {
