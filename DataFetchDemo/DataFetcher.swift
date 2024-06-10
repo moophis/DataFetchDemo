@@ -30,7 +30,7 @@ public actor DataFetcher {
     case initial, pagination
   }
 
-  private(set) var prefetchedStream: AsyncStream<Data>?
+  private var prefetchedStream: AsyncStream<Data>?
 
   func prefetch(_ intent: FetchIntent) {
     prefetchedStream = makeFetchStream(intent)

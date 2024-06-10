@@ -64,7 +64,7 @@ struct ContentView: View {
       log("Task begin")
       isLoading = true
 
-      var stream = await dataFetcher.prefetchedStream
+      var stream = await dataFetcher.fulfillPrefetchedStream()
       log("After prefetchedStream")
       if stream != nil {
         hasPrefetched = true
